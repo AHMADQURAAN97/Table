@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My-Book-Shelf</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>My-Book-Shelf</h1>
+    </header>
+
+    <main>
+        
+  <section id ="container">
+        
+     <div id="container-form" >
+      
+          <form action="" id="myform">
+              
+                
+                <label for="bName" class="bookName"> Book Name</label>
+                <input type="text" id="bName" name="bName">
+
+                <label for="nPage">Number of Page</label>
+                <input type="number"  min="0" oninput="validity.valid||(value='');"  id="nPage" name="nPage">
+
+                <label for="cCategory">Category</label>
+                <select name="sCategory" id="cCategory" >
+                    <option value="fantasy">Fantasy </option>
+                    <option value="sciencefiction">Science Fiction</option>
+                    <option value="history">History</option>
+                    <option value="science">Science</option>
+                </select>
+
+                    <input type="submit" value="Submit">
+                
+            </form>
+        </div>
+             
+        <!-- ===========================Table==================== -->
+        <div id="container-table" >
+
+      
+       </div>
+
+
+
+      </section>
+      </main>
+
+    <footer></footer>
+    <script src="app.js"></script>
+  </body>
+</html>

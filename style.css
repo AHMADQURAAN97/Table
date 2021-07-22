@@ -1,0 +1,75 @@
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    background-color: #F5F5DC;
+    text-align: center;
+    color: #320D6D;
+    width: 100%;
+    padding: 20px;
+}
+main {
+    background-image: url('background.jpg') ; 
+}
+
+
+
+/* =========================== Beg Form ===================*/
+#myform {
+  
+    background-color: rgb(50, 13, 109,.8);
+    padding: 20px;
+    width: 20%;
+    
+}
+
+
+input[type=submit] {
+    width: 90%;
+    background-color: white;
+    color: #320D6D;
+    padding: 5px 15px;
+    margin: 8px 0;
+    
+    border-radius: 4px;
+    
+  }
+
+  input[type=text],input[type=number], select {
+    width: 90%;
+    padding: 5px 15px;
+    margin: 8px 0;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+
+  }
+  
+  label {
+    color: white;
+      margin-left: 70px;
+  }
+  /* ===========================End Form========== */
+
+table{
+
+background-color: brown;
+
+border:5px white;
+margin-left: 50px;
+}
+  tr,
+  td {
+
+font-size: 20px;
+border: oldlace;
+color: oldlace;
+
+  }
+
+  
