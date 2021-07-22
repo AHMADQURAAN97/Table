@@ -2,7 +2,7 @@
 let containerEl = document.getElementById('container');
 let containerForm = document.getElementById ('container-form');
 let containerTable = document.getElementById ('container-table');
-
+let tableEl = document.createElement('table');
 let books = [];
 
 function book (bName, nPage, cCategory) {
@@ -24,7 +24,7 @@ book.prototype.random=function(){
 };
 
 
-let tableEl = document.createElement('table');
+
 
 
 function createTableHeader() {
