@@ -9,7 +9,8 @@ function book (bName, nPage, cCategory) {
 this.bName = bName;
 this.nPage = nPage;
 this.cCategory = cCategory;
-this.randomPr =[];
+this.randomPr =this.random();
+
 books.push(this);
 saveTolocalStorage();
 };
@@ -19,8 +20,8 @@ book.prototype.random=function(){
    let min = Math.ceil(3);
    let max = Math.floor(8);
     let randomP = Math.floor(Math.random() * (max - min) + min);
-    this.randomPr.push(randomP);
-
+    // this.randomPr.push(randomP);
+    return randomP;
 };
 
 
@@ -31,7 +32,7 @@ function createTableHeader() {
   
 
     let trEl = document.createElement('tr');
-    tableEl.appendChild(trEl);
+    // tableEl.appendChild(trEl);
     
     
 
@@ -40,7 +41,7 @@ function createTableHeader() {
     trEl.appendChild(thBookNameEl);
 
     let thNumberPagesEl = document.createElement('th');
-    thNumberPagesEl.textContent = "Num berof Pages";
+    thNumberPagesEl.textContent = "Number of Pages";
     trEl.appendChild(thNumberPagesEl);
 
 
@@ -54,13 +55,22 @@ function createTableHeader() {
     thCategoryEl.textContent = "Category";
     trEl.appendChild(thCategoryEl);
 
-    
+    let thTotalPagesEl = document.createElement('th');
+    thTotalPagesEl.textContent = "Total pages";
+    trEl.appendChild(thTotalPagesEl);
+   
+    let thDeleteEl = document.createElement('th');
+    thDeleteEl.textContent = "Remove";
+    trEl.appendChild(thDeleteEl);
     
     tableEl.appendChild(trEl);
     containerTable.appendChild(tableEl);
 
 };
-book.prototype.render=function(){
+
+let sum = 0;
+
+book.prototype.render = function(){
 
     let trEl = document.createElement('tr');
     
@@ -71,6 +81,10 @@ book.prototype.render=function(){
     let tdEl2 = document.createElement('td');
     tdEl2.textContent = this.nPage;
     trEl.appendChild(tdEl2);
+
+     
+     sum += parseFloat(this.nPage)
+    
     
     let tdEl3 = document.createElement('td');
     tdEl3.textContent = this.randomPr;
@@ -80,12 +94,21 @@ book.prototype.render=function(){
     tdEl4.textContent = this.cCategory;
     trEl.appendChild(tdEl4);
     
+    let tdEl5 = document.createElement('td');
+    tdEl5.textContent = sum;
+    trEl.appendChild(tdEl5);
     
+    let tdEl6 = document.createElement('td');
+    tdEl6.textContent ="X";
+    tdEl6.classList.add('delete')
+    tdEl6.setAttribute('onclick','')
+    trEl.appendChild(tdEl6);
+
     tableEl.appendChild(trEl);
     containerTable.appendChild(tableEl);
     }
 
-// =================================Form==============
+// =================================Form====================
 createTableHeader();
 let myForm = document.getElementById ('myform');
 myForm.addEventListener('submit' ,addBook);
@@ -112,11 +135,16 @@ function saveTolocalStorage (){
 
 function readFromLocalStorage (){
 
-    let stringObj=localStorage.getItem('boook');
-    let normalObj=JSON.parse(stringObj);
-    if (normalObj !==null) {
-        books=normalObj;
-        normalObj.render();
+    let stringObj = localStorage.getItem('boook');
+    let normalObj = JSON.parse(stringObj);
+    if (normalObj !== null) {
+        for ( let i=0 ; i < normalObj.length ; i++){
+
+            new book (normalObj[i].bName, normalObj[i].nPage,normalObj[i].cCategory);
+            books[i].render();
+        }
+
+        
     }
     
 }

@@ -12,18 +12,20 @@ header {
     padding: 20px;
 }
 main {
-    background-image: url('background.jpg') ; 
+    background-image: url('background.jpg') ; width: 100%;
 }
 
-
+#container {
+    display:flex;
+}
 
 /* =========================== Beg Form ===================*/
 #myform {
   
     background-color: rgb(50, 13, 109,.8);
     padding: 20px;
-    width: 20%;
-    
+    width: 110%;
+    margin-left: 50px;
 }
 
 
@@ -58,18 +60,20 @@ input[type=submit] {
 
 table{
 
-background-color: brown;
+background-color: rgb(50, 13, 109,.8);
 
 border:5px white;
-margin-left: 50px;
+margin-left: 150px;
+margin-top: 50px;
+padding: 50px;
+padding-top: 80px;
+padding-bottom: 80px;
 }
-  tr,
-  td {
+  
+  td , th {
 
 font-size: 20px;
-border: oldlace;
-color: oldlace;
-
+background-color: white;
   }
 
   
