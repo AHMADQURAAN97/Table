@@ -9,23 +9,21 @@ function book (bName, nPage, cCategory) {
 this.bName = bName;
 this.nPage = nPage;
 this.cCategory = cCategory;
-this.randomPr =this.random();
+this.randomPr = this.random();
+
 
 books.push(this);
 saveTolocalStorage();
 };
 
-book.prototype.random=function(){
+book.prototype.random = function(){
 
    let min = Math.ceil(3);
    let max = Math.floor(8);
     let randomP = Math.floor(Math.random() * (max - min) + min);
-    // this.randomPr.push(randomP);
+   
     return randomP;
 };
-
-
-
 
 
 function createTableHeader() {
@@ -69,7 +67,7 @@ function createTableHeader() {
 };
 
 let sum = 0;
-
+let count =0;
 book.prototype.render = function(){
 
     let trEl = document.createElement('tr');
@@ -99,11 +97,13 @@ book.prototype.render = function(){
     trEl.appendChild(tdEl5);
     
     let tdEl6 = document.createElement('td');
-    tdEl6.textContent ="X";
-    tdEl6.classList.add('delete')
-    tdEl6.setAttribute('onclick','')
+    let aEl = document.createElement('a');
+    aEl.innerHTML = `<ion-icon id=${count} name="close-circle-outline"></ion-icon>`;
+    aEl.addEventListener('click' , clerRow);
+    tdEl6.appendChild(aEl);
     trEl.appendChild(tdEl6);
-
+    count++;
+    
     tableEl.appendChild(trEl);
     containerTable.appendChild(tableEl);
     }
@@ -148,4 +148,23 @@ function readFromLocalStorage (){
     }
     
 }
+
+
+function clerRow(event){
+    // event.preventDefault();
+   let newOne= localStorage.getItem('boook');
+   newOne=JSON.parse(newOne);
+   newOne.splice(Number( event.target.id),1);
+   newOne =JSON.stringify(newOne);
+   localStorage.setItem('boook' , newOne);
+   location.reload();
+};
+
+
+
 readFromLocalStorage ();
+
+
+
+
+ 
